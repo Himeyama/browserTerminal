@@ -63,16 +63,13 @@ document.addEventListener("keypress", function(e){
 
         if(true){
             if(e.key == "Backspace"){
-                // document.getElementById(Terminal.activeID).getElementsByClassName("winContents")[0].innerHTML
                 obj.input = `${str.slice(0, -1)}`
             }else if(e.key == "Enter"){
                 let output
                 let skip = false
                 try{
                     eval(obj.input)
-                    console.log(2)
                 }catch(err){
-                    console.log(1)
                     skip = true
                 }
 
@@ -88,12 +85,9 @@ document.addEventListener("keypress", function(e){
                 }else{
                     output = `Error: <span style="color:red;">${obj.input}</span>`
                 }
-                obj.terminalDisplay = obj.terminalDisplay + obj.ps1 + obj.input + "<br>" + output + "<br>"
+                obj.terminalDisplay = obj.terminalDisplay + obj.ps1 + obj.input + (obj.input == "" ? "" : "<br>") + output + "<br>"
                 obj.input = ""
-                // str += "<br>"
-                // terminal.setContents(`<p style="margin:0;">${str}</p>`)
             }else{
-                // document.getElementById(Terminal.activeID).getElementsByClassName("winContents")[0].innerHTML
                 obj.input = `${str}${e.key}`
             }
         }
