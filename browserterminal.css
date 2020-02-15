@@ -7,4 +7,7 @@
 
 .terminal .winContents p{
     word-break: break-all;
+    margin: 0;
+    height: 100%;
+    overflow: auto;
 }
