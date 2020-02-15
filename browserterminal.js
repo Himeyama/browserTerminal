@@ -1,7 +1,7 @@
 class Terminal extends Window{
     terminalDisplay = ""
     input = ""
-    ps1 = "$ "
+    ps1 = "JavaScript> "
 
     static create(id){
         let terminal
@@ -56,7 +56,7 @@ document.addEventListener("keypress", function(e){
             break
         }
     }
-    // console.log(e)
+    console.log(e)
     if(flag){
         let obj = Terminal.get(Terminal.activeID)
         let str = obj.input
@@ -74,18 +74,14 @@ document.addEventListener("keypress", function(e){
                 }
 
                 if(!skip && !obj.input == ""){
-                    if(obj.input == "clear"){
-                        obj.terminalDisplay = ""
-                        obj.input = ""
-                    }else{
-                        output = String(eval(obj.input))
-                    }
+                    output = String(eval(obj.input))
                 }else if(obj.input == ""){
                     output = ""
                 }else{
                     output = `Error: <span style="color:red;">${obj.input}</span>`
                 }
                 obj.terminalDisplay = obj.terminalDisplay + obj.ps1 + obj.input + (obj.input == "" ? "" : "<br>") + output + "<br>"
+                if(obj.input == "clear") obj.terminalDisplay = ""
                 obj.input = ""
             }else{
                 obj.input = `${str}${e.key}`

@@ -1,6 +1,6 @@
 .terminal .winContents {
     font-family: Ubuntu Mono, monospace;
-    background:#300a24;
+    background:#300a24 !important;
     padding: 2px;
     height: 300px;
 }
